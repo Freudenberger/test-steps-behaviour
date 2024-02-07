@@ -9,7 +9,7 @@ test.describe("Whole test suit", () => {
     let value = await test.step("step 2 (should FAIL)", async () => {
       await page.goto("");
 
-      // following expect should result in following Error:
+      // following expect should result in Error:
       //   Error: Timed out 5000ms waiting for expect(locator).toHaveText(expected)
 
       // Locator: locator('#header_2')
@@ -26,18 +26,15 @@ test.describe("Whole test suit", () => {
   });
 
   test("test that should pass", async ({}) => {
+    // if:
+    // - this test is uncommented
+    // - retires: 0 (in playwright.config)
+    // then:
+    // "step 2 (should FAIL)" will be marked as ignored
+    // whole run will be marked as passed
+
     await test.step("step 1", async () => {
       expect.soft("test 5").toEqual("test 5");
-    });
-
-    await test.step("step 2", async () => {
-      await test.step("step 2.1", async () => {
-        expect.soft("test 7").toEqual("test 7");
-      });
-
-      await test.step("step 2.2", async () => {
-        expect("test 6").toEqual("test 6");
-      });
     });
   });
 });
