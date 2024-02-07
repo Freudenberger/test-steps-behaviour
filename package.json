@@ -1,0 +1,17 @@
+{
+  "name": "steps-behaviour",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@currents/playwright": "^0.12.1",
+    "@playwright/test": "^1.41.2",
+    "@types/node": "^20.11.16"
+  }
+}
